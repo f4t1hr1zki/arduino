@@ -1,0 +1,51 @@
+# [package]
+# name = "arduino-led-rgb"
+# version = "0.1.0"
+# edition = "2021"
+# 
+# [dependencies]
+# panic-halt = "0.2.0"
+# 
+# # Menggunakan Full SHA Hash dari commit stabil versi 0.1.0 (sebelum perombakan Edition 2024)
+# arduino-hal = { git = "https://github.com/rahix/avr-hal", rev = "3e36261541ba3c7882200230626027c9339e76f5", features = ["arduino-uno"] }
+# 
+# [profile.dev]
+# panic = "abort"
+# lto = false
+# opt-level = "s"
+# 
+# [profile.release]
+# panic = "abort"
+# lto = false
+# opt-level = "s"
+# # Override optimalisasi khusus untuk pustaka internal Rust agar tidak memicu bug compiler
+# [profile.release.package.compiler_builtins]
+# opt-level = 2
+# 
+# [profile.release.package.core]
+# opt-level = 2
+# 
+# [net]
+# git-fetch-with-cli = true
+[package]
+name = "arduino-led-rgb"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+panic-halt = "0.2.0"
+
+[dependencies.arduino-hal]
+git = "https://github.com/rahix/avr-hal"
+features = ["arduino-uno"]
+
+[profile.dev]
+panic = "abort"
+lto = true
+opt-level = "s"
+
+[profile.release]
+panic = "abort"
+lto = true
+opt-index = true
+opt-level = "s"
