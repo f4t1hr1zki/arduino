@@ -1,2 +1,2 @@
 # arduino
-full ai, cuma penasaran. tested in SIMULID
+full ai, cuma penasaran. tested in SIMULIDE
